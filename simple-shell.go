@@ -22,7 +22,12 @@ func execInput(input string) error {
 				return errors.New("path required")
 			}
 			return os.Chdir(args[1])
+		case "go":
+			if args[1] == "run" && args[2] == "main.go"{
+				return errors.New("Running this shell")
+			}
 		case "exit":
+			fmt.Print("Bye\n")
 			os.Exit(0)
 		
 	}
