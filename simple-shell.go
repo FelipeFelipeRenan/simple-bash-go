@@ -42,9 +42,12 @@ func execInput(input string) error {
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
+	host, err := os.Hostname()
+	if err != nil {
+		print(color.Ize(color.Red, "Strange error"))
+	}
 	for {
-		println()
-		fmt.Print("> ")
+		fmt.Print(color.Ize(color.Green, host), "> ")
 		input, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
